@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    stages {
+        stage('vcs') {
+            steps {
+                git url: 'https://github.com/palle-lavanya/spring-petclinic.git'
+            }
+        }
+        stage('build') {
+            steps {
+                sh'./mvnw package'
+            } 
+        } 
+    stage('sonar test'){
+            steps{
+                withSonarQubeEnv('lavanya') {
+                sh './mvnw clean verify sonar:sonar  -Dsonar.organization=palle -Dsonar.projectKey=palle/lavanya'
+                }
+            }
+         }
+      }
+    }      
+        
