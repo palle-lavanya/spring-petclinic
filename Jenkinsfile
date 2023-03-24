@@ -12,16 +12,16 @@ pipeline {
                 sh'./mvnw package'
             } 
         } 
-        stage('sonar test'){
+        stage('sonar test') {
             steps{
                 withSonarQubeEnv('sonar') {
                 sh './mvnw clean package sonar:sonar -Dsonar.organization=palle -Dsonar.projectKey=palle/lavanya'
                 }
             }
-         }
+        }
         stage('publish') {
             steps{
-                archiveartifacts artifacts: '**/target/*.jar',
+                archiveartifacts artifacts: '/home/ubuntu/laav/workspace/name1_develop/target/*.jar',
                 fingerprint: true
             }
         }
