@@ -15,7 +15,7 @@ pipeline {
         stage('sonar test'){
             steps{
                 withSonarQubeEnv('sonar') {
-                sh './mvnw clean verify sonar:sonar  -Dsonar.organization=palle -Dsonar.projectKey=palle/lavanya'
+                sh './mvnw clean package sonar:sonar -Dsonar.organization=palle -Dsonar.projectKey=palle/lavanya'
                 }
             }
          }
@@ -27,6 +27,11 @@ pipeline {
         stage('copying jar file') {
             steps{
                 sh 'sudo cp  /home/ubuntu/laav/workspace/name1_develop/target/spring-petclinic-3.0.0-SNAPSHOT.jar /tmp'
+            }
+        }
+        stage('deploy') {
+            steps{
+                sh 'ansible-playbook -i hosts ansible.yaml'
             }
         }
                    
