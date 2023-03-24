@@ -6,9 +6,10 @@ tasks:
    ansible.builtin.copy:
      src: spc.service
      dest: /etc/systemd/system/spc.service
-     mode: '0664'
+     mode: '664'
  - name: Make sure a service unit is running
    ansible.builtin.systemd:
-     state: started
      name: spc.service 
-     enabled: yes      
+     enabled: yes 
+     daemon_reload: true     
+     state: "started"
