@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent {label 'ubuntu'}
     stages {
         stage('vcs') {
             steps {
@@ -21,7 +21,7 @@ pipeline {
          }
         stage('publish') {
             steps{
-                archiveartifacts artifacts:'build/'
+                archiveartifacts artifacts: **/target/*.jar
             }
         }     
       }
