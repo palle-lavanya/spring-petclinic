@@ -1,0 +1,6 @@
+server1:/etc/systemd/system # cat /etc/systemd/system/test.service
+[Unit]
+Description=example systemd service unit file.
+
+[Service]
+ExecStart= /usr/lib/jvm/java-17-openjdk-amd64 -jar /tmp/spring-petclinic-3.0.0-SNAPSHOT.jar

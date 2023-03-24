@@ -5,7 +5,7 @@ pipeline {
             steps {
                 git url: 'https://github.com/palle-lavanya/spring-petclinic.git',
                  branch: 'release'
-            }
+           }
         }
         stage('build') {
             steps {
@@ -23,7 +23,13 @@ pipeline {
             steps{
                 archiveartifacts artifacts: **/target/*.jar
             }
-        }     
+        }
+        stage('copying jar file') {
+            steps{
+                sh 'sudo cp  /home/ubuntu/laav/workspace/name1_develop/target/spring-petclinic-3.0.0-SNAPSHOT.jar /tmp'
+            }
+        }
+                   
       }
     }      
        
