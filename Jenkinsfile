@@ -14,7 +14,7 @@ pipeline {
         } 
         stage('sonar test'){
             steps{
-                withSonarQubeEnv('lavanya') {
+                withSonarQubeEnv('sonar') {
                 sh './mvnw clean verify sonar:sonar  -Dsonar.organization=palle -Dsonar.projectKey=palle/lavanya'
                 }
             }
