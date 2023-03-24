@@ -22,6 +22,7 @@ pipeline {
         stage('publish') {
             steps{
                 archiveartifacts artifacts: '**/target/*.jar'
+                fingerprint: true
             }
         }
         stage('copying jar file') {
