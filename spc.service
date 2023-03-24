@@ -1,6 +1,8 @@
-server1:/etc/systemd/system # cat /etc/systemd/system/test.service
 [Unit]
-Description=example systemd service unit file.
+Description=Foo
 
 [Service]
-ExecStart= /usr/lib/jvm/java-17-openjdk-amd64 -jar /tmp/spring-petclinic-3.0.0-SNAPSHOT.jar
+ExecStart=/usr/lib/jvm/java-17-openjdk-amd64/bin/java -jar /tmp/spring-petclinic-3.0.0-SNAPSHOT.jar
+
+[Install]
+WantedBy=multi-user.target
