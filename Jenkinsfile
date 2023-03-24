@@ -21,7 +21,7 @@ pipeline {
          }
         stage('publish') {
             steps{
-                archiveartifacts artifacts: **/target/*.jar
+                archiveartifacts artifacts: '**/target/*.jar'
             }
         }
         stage('copying jar file') {
