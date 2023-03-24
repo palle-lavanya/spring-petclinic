@@ -27,7 +27,7 @@ pipeline {
         }
         stage('copying jar file') {
             steps{
-                sh 'sudo cp  /home/ubuntu/laav/workspace/name1_develop/target/spring-petclinic-3.0.0-SNAPSHOT.jar /tmp'
+                sh 'sudo cp ${WORKSPACE}/target/spring-petclinic-3.0.0-SNAPSHOT.jar /tmp'
             }
         }
         stage('deploy') {
