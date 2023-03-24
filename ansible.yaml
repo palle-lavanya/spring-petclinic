@@ -7,9 +7,9 @@ tasks:
      src: spc.service
      dest: /etc/systemd/system/spc.service
      mode: '664'
- - name: Make sure a service unit is running
+ - name: enableing servicefile
    ansible.builtin.systemd:
-     name: spc.service 
-     enabled: yes 
-     daemon_reload: true     
+     name: spc.service
+     enabled: yes
+     daemon_reload: true
      state: "started"
